@@ -23,6 +23,8 @@ message(STATUS "Configuration: ${CMAKE_BUILD_TYPE}")
 
 add_executable(fenko ${SOURCES})
 
+set(CMAKE_C_FLAGS -Wno-unused-parameter)
+
 # set include dirs
 include_directories(fenko PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/
                     # backwards compatibility

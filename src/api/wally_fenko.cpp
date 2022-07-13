@@ -170,7 +170,6 @@ NATIVE_FUNCTION(haltMusic)
 
 // endregion
 
-
 void defineFenko(Table* table)
 {
     ObjClass* WRenderer = newClass(copyString("renderer", 8));
