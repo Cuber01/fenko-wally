@@ -11,7 +11,6 @@ void CInputBackend::updateInput()
     }
 }
 
-
 void CInputBackend::handleInput(SDL_Event* event)
 {
 
