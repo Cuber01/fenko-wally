@@ -9,7 +9,6 @@ This is the Wally compatible version.
 # Compile
 
 ```
-mkdir out/
 cmake .
 make
 ```
