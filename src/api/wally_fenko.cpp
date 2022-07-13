@@ -1,5 +1,3 @@
-#include "api/wally_fenko.hpp"
-
 extern "C"
 {
     #include "wally/std/native_utils.h"
@@ -185,6 +183,26 @@ void defineFenko(Table* table)
     #define DEFINE_INPUT_METHOD(name, method) defineNativeFunction(WInput->methods, name, method)
     #define DEFINE_SOUND_METHOD(name, method) defineNativeFunction(WSound->methods, name, method)
 
+    DEFINE_SOUND_METHOD("haltMusic",   haltMusicNative);
+    DEFINE_SOUND_METHOD("resumeMusic", resumeMusicNative);
+    DEFINE_SOUND_METHOD("pauseMusic",  pauseMusicNative);
+    DEFINE_SOUND_METHOD("loopMusic",   loopMusicNative);
+    DEFINE_SOUND_METHOD("playMusic",   playMusicNative);
+    DEFINE_SOUND_METHOD("playSound",   playSoundNative);
+
+    DEFINE_INPUT_METHOD("isMouseButtonPressed", isMouseButtonPressedNative);
+    DEFINE_INPUT_METHOD("isButtonPressed",      isButtonPressedNative);
+    DEFINE_INPUT_METHOD("update",               updateNative);
+
+    DEFINE_DRAW_METHOD("clear",        clearNative);
+    DEFINE_DRAW_METHOD("circfill",     circfillNative);
+    DEFINE_DRAW_METHOD("circ",         circNative);
+    DEFINE_DRAW_METHOD("rectfill",     rectfillNative);
+    DEFINE_DRAW_METHOD("rect",         rectNative);
+    DEFINE_DRAW_METHOD("pget",         pgetNative);
+    DEFINE_DRAW_METHOD("pset",         psetNative);
+
+    DEFINE_SOUND_METHOD("draw",        drawNative);
 
     #undef DEFINE_RENDERER_METHOD
     #undef DEFINE_DRAW_METHOD
