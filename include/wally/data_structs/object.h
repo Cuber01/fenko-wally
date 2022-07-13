@@ -63,7 +63,7 @@ struct ObjString {
     uint32_t hash; // Used in hashtables
 };
 
-typedef struct {
+typedef struct ObjClass {
     Obj obj;
     ObjString* name;
     Table* methods;

@@ -1,7 +1,13 @@
 #include "api/wally_fenko.hpp"
-#include "wally/std/native_utils.h"
-#include "wally/data_structs/value.h"
-#include "wally/misc/common.h"
+
+extern "C"
+{
+    #include "wally/std/native_utils.h"
+    #include "wally/data_structs/value.h"
+    #include "wally/misc/common.h"
+    #include "wally/data_structs/object.h"
+}
+
 #include "main.hpp"
 
 // region Renderer
@@ -165,3 +171,48 @@ NATIVE_FUNCTION(haltMusic)
 }
 
 // endregion
+
+
+void defineFenko(Table* table)
+{
+    ObjClass* WRenderer = newClass(copyString("renderer", 8));
+    ObjClass* WDraw     = newClass(copyString("draw",     4));
+    ObjClass* WInput    = newClass(copyString("input",    5));
+    ObjClass* WSound    = newClass(copyString("sound",    5));
+
+    #define DEFINE_RENDERER_METHOD(name, method) defineNativeFunction(WRenderer->methods, name, method)
+    #define DEFINE_DRAW_METHOD(name, method) defineNativeFunction(WDraw->methods, name, method)
+    #define DEFINE_INPUT_METHOD(name, method) defineNativeFunction(WInput->methods, name, method)
+    #define DEFINE_SOUND_METHOD(name, method) defineNativeFunction(WSound->methods, name, method)
+
+
+    #undef DEFINE_RENDERER_METHOD
+    #undef DEFINE_DRAW_METHOD
+    #undef DEFINE_INPUT_METHOD
+    #undef DEFINE_SOUND_METHOD
+
+    tableDefineEntry(
+            table,
+            WRenderer->name,
+            OBJ_VAL(newInstance(WRenderer))
+    );
+
+    tableDefineEntry(
+            table,
+            WDraw->name,
+            OBJ_VAL(newInstance(WDraw))
+    );
+
+    tableDefineEntry(
+            table,
+            WInput->name,
+            OBJ_VAL(newInstance(WInput))
+    );
+
+    tableDefineEntry(
+            table,
+            WSound->name,
+            OBJ_VAL(newInstance(WSound))
+    );
+
+}

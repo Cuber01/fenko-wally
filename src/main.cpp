@@ -35,8 +35,6 @@ void quit()
 
 int main()
 {
-
-
     // execute Wally code
     /* remember to call these
      input.updateInput();
