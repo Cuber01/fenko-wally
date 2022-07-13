@@ -8,6 +8,8 @@
 #include "input/input_api.hpp"
 #include "sound/sound.hpp"
 
+#include "api/wally_fenko.hpp"
+
 bool running = true;
 
 CRenderHandler renderer;
@@ -33,6 +35,8 @@ void quit()
 
 int main()
 {
+
+
     // execute Wally code
     /* remember to call these
      input.updateInput();
