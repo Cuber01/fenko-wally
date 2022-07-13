@@ -13,3 +13,7 @@ mkdir out/
 cmake .
 make
 ```
+
+# Other
+
+Last time Wally files updated - July 13th 2022
