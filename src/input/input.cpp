@@ -15,7 +15,6 @@ void CInputBackend::updateInput()
 void CInputBackend::handleInput(SDL_Event* event)
 {
 
-
     // mouse
     switch (event->type)
     {
