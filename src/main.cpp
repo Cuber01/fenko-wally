@@ -2,7 +2,6 @@
 #include <SDL_mixer.h>
 
 #include "graphics/drawing_api.hpp"
-#include "graphics/sprite.hpp"
 #include "graphics/render.hpp"
 
 #include "input/input_api.hpp"
@@ -15,8 +14,6 @@ extern "C"
     #include "wally/main.h"
     #include "wally/vm/vm.h"
 }
-
-bool running = true;
 
 CRenderHandler renderer;
 CInput         input;

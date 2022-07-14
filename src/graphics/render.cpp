@@ -9,7 +9,7 @@
 
 CRenderHandler::CRenderHandler()
 {
-    // initalize video
+    // initialize video
     if( SDL_Init(SDL_INIT_VIDEO) != 0)
     {
         printf( "SDL video failed to initialize. Error: %s\n", SDL_GetError() );
@@ -21,7 +21,7 @@ CRenderHandler::CRenderHandler()
     // create window
 	window = SDL_CreateWindow("FENKO", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WINDOW_WIDTH, WINDOW_HEIGHT, window_flags);
 
-	if(window == NULL)
+	if(window == nullptr)
 	{
 		printf( "Window could not be created. SDL_Error: %s\n", SDL_GetError() );
         exit(1);
@@ -30,7 +30,7 @@ CRenderHandler::CRenderHandler()
     // create renderer
     renderer = SDL_CreateRenderer(window, -1, 0); 
 
-    if (renderer == NULL)
+    if (renderer == nullptr)
     {
         printf("Renderer failed to initialize. Error: %s\n", SDL_GetError());
         exit(1);
@@ -39,7 +39,7 @@ CRenderHandler::CRenderHandler()
     // create surface
     surface = SDL_CreateRGBSurface(SDL_SWSURFACE, ROWS, COLS, 32, 0, 0, 0, 0);
 
-    if(surface == NULL) 
+    if(surface == nullptr)
     {
         printf("Failed to create surface: %s\n", SDL_GetError());
         exit(1);
@@ -86,7 +86,7 @@ void CRenderHandler::draw()
     texture = SDL_CreateTextureFromSurface(renderer, surface); 
     
     // copy texture over to renderer
-    SDL_RenderCopy(renderer, texture, NULL, NULL); 
+    SDL_RenderCopy(renderer, texture, nullptr, nullptr);
 
     SDL_RenderPresent(renderer);
 
@@ -95,7 +95,7 @@ void CRenderHandler::draw()
 
 void CRenderHandler::clear()
 {
-    SDL_FillRect(surface, NULL, 0x000000);
+    SDL_FillRect(surface, nullptr, 0x000000);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 }

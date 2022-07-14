@@ -1,7 +1,5 @@
-#include <stdint.h>
 #include <memory.h>
-#include <iostream>
-#include <tgmath.h>
+#include <ctgmath>
 
 #include "graphics/drawing_api.hpp"
 #include "canvas.hpp"
@@ -179,8 +177,8 @@ void CDraw::line(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t c)
     int16_t dx = x2 - x1;
     int16_t dy = y2 - y1;
 
-    uint16_t dx1 = fabs(dx);
-    uint16_t dy1 = fabs(dy);
+    uint16_t dx1 = abs(dx);
+    uint16_t dy1 = abs(dy);
 
     int16_t px = 2 * dy1 - dx1;
     int16_t py = 2 * dx1 - dy1;

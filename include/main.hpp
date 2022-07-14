@@ -7,8 +7,6 @@
 #include "sound/sound.hpp"
 #include "graphics/sprite.hpp"
 
-extern bool running;
-
 extern CRenderHandler renderer;
 extern CInput         input;
 extern CDraw          draw;

@@ -1,7 +1,6 @@
 #include <SDL.h>
 
 #include "input/input.hpp"
-#include "main.hpp"
 
 void CInputBackend::updateInput()
 {
@@ -11,11 +10,11 @@ void CInputBackend::updateInput()
     }
 }
 
-void CInputBackend::handleInput(SDL_Event* event)
+void CInputBackend::handleInput(SDL_Event* e)
 {
 
     // mouse
-    switch (event->type)
+    switch (e->type)
     {
         
         case SDL_MOUSEMOTION:
@@ -23,29 +22,29 @@ void CInputBackend::handleInput(SDL_Event* event)
             break;
 
         case SDL_MOUSEBUTTONDOWN:
-            mouseKeys[event->button.button] = true;
+            mouseKeys[e->button.button] = true;
             break;
 
         case SDL_MOUSEBUTTONUP:
-            mouseKeys[event->button.button] = false;
+            mouseKeys[e->button.button] = false;
             break;
 
     }
 
     // keyboard and quit
-    switch (event->type)
+    switch (e->type)
     {
 
     case SDL_KEYDOWN:
-        keyboard[event->key.keysym.sym] = true;
+        keyboard[e->key.keysym.sym] = true;
         break;
 
     case SDL_KEYUP:
-        keyboard[event->key.keysym.sym] = false;
+        keyboard[e->key.keysym.sym] = false;
         break;
 
     case SDL_QUIT:
-        running = false;
+        // TODO Handle quit
         break;
 
     }

@@ -11,7 +11,7 @@ class CInputBackend {
         SDL_Event event;
         intVector2D cursorPos;
 
-        void handleInput(SDL_Event* event);
+        void handleInput(SDL_Event* e);
 
     public:
         std::map<int, bool> keyboard;

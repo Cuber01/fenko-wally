@@ -1,5 +1,3 @@
-
-#include <SDL2/SDL.h>
 #include <SDL_mixer.h>
 #include "sound/sound.hpp"
 
@@ -15,7 +13,7 @@ CSound::CSound()
 Mix_Music* CSound::loadMusic(const char* musicPath)
 {
     Mix_Music* rv = Mix_LoadMUS( musicPath );
-    if( rv == NULL )
+    if( rv == nullptr )
     {
         printf( "Failed to load music! SDL_mixer Error: %s\n", Mix_GetError() );
         exit(1);
@@ -27,7 +25,7 @@ Mix_Music* CSound::loadMusic(const char* musicPath)
 Mix_Chunk* CSound::loadSound(const char* soundPath)
 {
     Mix_Chunk* rv = Mix_LoadWAV( soundPath );
-    if( rv == NULL )
+    if( rv == nullptr )
     {
         printf( "Failed to load music! SDL_mixer Error: %s\n", Mix_GetError() );
         exit(1);

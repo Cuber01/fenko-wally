@@ -1,9 +1,7 @@
 #ifndef __DRAW_HPP
 #define __DRAW_HPP
 
-#include <stdint.h>
-
-#define cls clear
+#include <cstdint>
 
 class CDraw {
 

@@ -1,9 +1,7 @@
 #ifndef __TYPES_HPP
 #define __TYPES_HPP
 
-#include <stdint.h>
-
-#define Colour Color
+#include <cstdint>
 
 struct Vector2D {
     uint16_t x;
