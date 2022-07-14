@@ -10,6 +10,11 @@
 
 #include "api/wally_fenko.hpp"
 
+extern "C"
+{
+    #include "wally/main.h"
+}
+
 bool running = true;
 
 CRenderHandler renderer;
@@ -33,8 +38,10 @@ void quit()
 }
 
 
-int main()
+int main(int argc, const char* argv[])
 {
+    runWally(argc, argv);
+
     // execute Wally code
     /* remember to call these
      input.updateInput();
@@ -44,7 +51,7 @@ int main()
      renderer.draw();
      */
 
-    quit();
+    //quit();
 
     return 0;
 }
