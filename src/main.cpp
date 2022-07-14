@@ -13,6 +13,7 @@
 extern "C"
 {
     #include "wally/main.h"
+    #include "wally/vm/vm.h"
 }
 
 bool running = true;
@@ -21,9 +22,8 @@ CRenderHandler renderer;
 CInput         input;
 CDraw          draw;
 CSound         sound;
-CSprite        sprite;
 
-// quit function
+
 void quit()
 {
     // destroy the renderer and the window
@@ -33,25 +33,16 @@ void quit()
     // quit both SDL_Mix and SDL2
     Mix_Quit();
     SDL_Quit();
-
-    exit(0);
 }
 
 
 int main(int argc, const char* argv[])
 {
+    initVM();
+    defineFenko(vm.nativeEnvironment->values);
     runWally(argc, argv);
 
-    // execute Wally code
-    /* remember to call these
-     input.updateInput();
-
-     SDL_Delay(10);
-
-     renderer.draw();
-     */
-
-    //quit();
+    quit();
 
     return 0;
 }

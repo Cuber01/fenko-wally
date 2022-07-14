@@ -98,6 +98,8 @@ NATIVE_FUNCTION(update)
 {
     CHECK_ARG_COUNT("input.update", 0);
     input.updateInput();
+
+    return NULL_VAL;
 }
 
 NATIVE_FUNCTION(isButtonPressed)
@@ -172,7 +174,7 @@ NATIVE_FUNCTION(haltMusic)
 
 void defineFenko(Table* table)
 {
-    ObjClass* WRenderer = newClass(copyString("renderer", 8));
+    ObjClass* WRenderer = newClass(copyString("render", 6));
     ObjClass* WDraw     = newClass(copyString("draw",     4));
     ObjClass* WInput    = newClass(copyString("input",    5));
     ObjClass* WSound    = newClass(copyString("sound",    5));
@@ -201,7 +203,7 @@ void defineFenko(Table* table)
     DEFINE_DRAW_METHOD("pget",         pgetNative);
     DEFINE_DRAW_METHOD("pset",         psetNative);
 
-    DEFINE_SOUND_METHOD("draw",        drawNative);
+    DEFINE_RENDERER_METHOD("draw",     drawNative);
 
     #undef DEFINE_RENDERER_METHOD
     #undef DEFINE_DRAW_METHOD

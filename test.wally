@@ -1,1 +1,6 @@
-print("Hello World!");
+while(true)
+{
+    draw.rect(10, 10, 50, 50, 8);
+
+    render.draw();
+}
