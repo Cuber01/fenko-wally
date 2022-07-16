@@ -105,13 +105,13 @@ NATIVE_FUNCTION(update)
 NATIVE_FUNCTION(isButtonPressed)
 {
     CHECK_ARG_COUNT("input.isButtonPressed", 1);
-    return BOOL_VAL(input.isButtonPressed(AS_NUMBER( (int)args[0]) ));
+    return BOOL_VAL(input.isButtonPressed((int)AS_NUMBER( args[0]) ));
 }
 
 NATIVE_FUNCTION(isMouseButtonPressed)
 {
     CHECK_ARG_COUNT("input.isMouseButtonPressed", 1);
-    return BOOL_VAL(input.isMouseButtonPressed(AS_NUMBER( (int)args[0]) ));
+    return BOOL_VAL(input.isMouseButtonPressed((int)AS_NUMBER( args[0]) ));
 }
 
 // endregion

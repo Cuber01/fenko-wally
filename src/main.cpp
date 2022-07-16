@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
+#include <iostream>
 
 #include "graphics/drawing_api.hpp"
 #include "graphics/render.hpp"
