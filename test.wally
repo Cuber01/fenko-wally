@@ -28,11 +28,11 @@ class PaddleA
     update()
     {
 
-        if(input.isButtonPressed(1073741904)) // SDLK_LEFT
+        if(input.isButtonPressed(1073741904) && this.x > 0 ) // SDLK_LEFT
         {
             this.x--;
         }
-        else if (input.isButtonPressed(1073741903)) // SDLK_RIGHT
+        else if (input.isButtonPressed(1073741903) && this.x + this.w < canvasWidth) // SDLK_RIGHT
         {
             this.x++;
         }
@@ -58,13 +58,13 @@ class PaddleB
     update()
     {
 
-        if(input.isButtonPressed(100)) // SDLK_d
-        {
-            this.x++;
-        }
-        else if (input.isButtonPressed(97)) // SDLK_a
+        if (input.isButtonPressed(97) && this.x > 0 ) // SDLK_a
         {
             this.x--;
+        }
+        else if(input.isButtonPressed(100) && this.x + this.w < canvasWidth) // SDLK_d
+        {
+            this.x++;
         }
 
     }
