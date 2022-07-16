@@ -44,8 +44,7 @@ void CInputBackend::handleInput(SDL_Event* e)
         break;
 
     case SDL_QUIT:
-        // TODO Handle quit
-        break;
+        exit(0);
 
     }
 
