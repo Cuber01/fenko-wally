@@ -95,7 +95,7 @@ void CRenderHandler::draw()
 
 void CRenderHandler::clear()
 {
-    SDL_FillRect(surface, nullptr, 0x000000);
+    SDL_FillRect(surface, NULL, 0x000000);
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 }

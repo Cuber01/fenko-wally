@@ -5,9 +5,6 @@
 #include <SDL.h>
 #include "input.hpp"
 
-#define isButtonPressed btn
-#define isMouseButtonPressed mbtn
-
 class CInput {
     
     private:

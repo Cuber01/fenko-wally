@@ -4,6 +4,8 @@
 
 void CInput::updateInput()
 {
+    SDL_Delay(10);
+
     inputBackend.updateInput();
 }
 
