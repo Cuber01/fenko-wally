@@ -3,18 +3,6 @@
 var canvasHeight = 128;
 var canvasWidth = 128;
 
-function collide(x1, y1, w1, h1, x2, y2, w2, h2)
-{
-    if( x1 >= x2 && x1 <= x2 + w2 && y1 >= y2 && y1 <= y2 + h2 )
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
 class PaddleA
 {
     init()
@@ -88,15 +76,25 @@ class Ball
         this.vel_y = 1;
     }
 
-    update(padA, padB)
+    collision(padA, padB)
     {
-        if( collide(this.x, this.y, this.w, this.h, padA.x, padA.y, padA.w, padA.h)
-            || collide(this.x, this.y, this.w, this.h, padB.x, padB.y, padB.w, padB.h))
-        {
-            this.vel_x = -this.vel_x;
-            this.vel_y = -this.vel_y;
-        }
-        else if (this.y + this.h >= canvasHeight)
+         if(padA.y == this.y)
+         {
+             if( this.x >= padA.x && this.x <= (padA.x + padA.w) )
+             {
+                 this.vel_y = -this.vel_y;
+             }
+         }
+
+         if( padB.y == this.y )
+         {
+             if( this.x >= padB.x && this.x <= (padB.x + padB.w) )
+             {
+                 this.vel_y = -this.vel_y;
+             }
+         }
+
+        if (this.y + this.h >= canvasHeight)
         {
             this.vel_y = -1;
         }
@@ -113,9 +111,19 @@ class Ball
             this.vel_x = 1;
         }
 
+        return true;
+    }
+
+    move()
+    {
         this.x += this.vel_x;
         this.y += this.vel_y;
+    }
 
+    update(padA, padB)
+    {
+        this.collision(padA, padB);
+        this.move();
     }
 
     draw()
